@@ -1,0 +1,22 @@
+service: portfolio-faas
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: go1.x
+
+package:
+  exclude:
+    - ./**
+  include:
+    - ./bin/**
+
+functions:
+  create:
+    handler: bin/contacts/create
+    events:
+      - http:
+          path: contacts
+          method: post
+          cors: true
