@@ -33,7 +33,5 @@ func (cs *contactService) validate() error {
 		return errors.New("Message cannot be blank")
 	}
 
-	// check that the email doesn't exist
-
 	return nil
 }
