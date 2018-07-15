@@ -10,7 +10,7 @@ import (
 func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	log.Println("Received body: ", request.Body)
 
-	var c contact
+	var c = new(contact)
 
 	err := json.Unmarshal([]byte(request.Body), c)
 	if err != nil {
@@ -21,8 +21,15 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		}, nil
 	}
 
-	service := contactService{contact: &c}
-	service.create()
+	service := contactService{contact: c}
+	_, err = service.create()
+
+	if err != nil {
+		return events.APIGatewayProxyResponse{
+			Body:       err.Error(),
+			StatusCode: 422,
+		}, nil
+	}
 
 	return events.APIGatewayProxyResponse{
 		Body:       "Hello " + request.Body,
