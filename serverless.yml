@@ -40,11 +40,11 @@ resources:
       Properties:
         AttributeDefinitions:
           -
-            AttributeName: id
+            AttributeName: email
             AttributeType: S
         KeySchema:
           -
-            AttributeName: id
+            AttributeName: email
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
