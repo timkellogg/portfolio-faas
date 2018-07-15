@@ -32,7 +32,7 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	}
 
 	return events.APIGatewayProxyResponse{
-		Body:       "Hello " + request.Body,
-		StatusCode: 200,
+		Body:       "Email Created",
+		StatusCode: 201,
 	}, nil
 }
