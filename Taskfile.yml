@@ -1,0 +1,10 @@
+build:
+  desc: creates application binaries
+  cmds:
+    - dep ensure
+    - cd ./functions/contacts/create && env GOOS=linux go build -ldflags="-s -w" -o ../../../bin/contacts/create
+
+deploy:
+  desc: deploys application
+  cmds:
+    - serverless deploy
