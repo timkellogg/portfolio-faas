@@ -4,7 +4,7 @@ This application handles saving contacts from my portfolio. It is designed to ru
 
 ## Tech Stack
 
-- severless
+- serverless
 - golang
 - aws lambda
 - aws dynamodb
